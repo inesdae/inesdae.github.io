@@ -1,0 +1,99 @@
+<!-- aframe documentation: https://aframe.io/docs/1.0.0/introduction/ -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aframe empty template</title>
+	<script src="./libraries/aframe-1.0.4.min.js"></script>
+	<script src="./libraries/aframe_ply_pointcloud_loader.js"></script>
+</head>
+
+<body>
+		<a-scene vr-mode-ui="enabled: false"
+						 loading-screen="enabled: false"
+						 background="color: black">
+
+				<a-assets>
+					<a-asset-item id="vaso-glb" src="./models/vaso-mesh.glb" response-type="arraybuffer" ></a-asset-item>
+					<img id="sky" src="sky.jpg">
+					<audio id="song-mp3" src="./audio/song.mp3" preload="auto"></audio>
+				</a-assets>
+
+<a-entity id="ambience"
+sound="src :#song-mp3;"
+position="0 0 300">
+</a-entity>
+
+
+			  <a-entity id="person" camera="fov: 80" camera look-controls position="0 1.5 800" wasd-controls="acceleration:8000"
+				cursor="rayOrigin: mouse;"
+				raycaster="objects: [data-mouse-collidable]"></a-entity>
+
+				<a-box
+				data-mouse-collidable
+				sound="src: #song-mp3; positional:false; on: click"
+				color="white"
+				depth="3"
+				height="3"
+				width="3"
+				position="0 0 400"
+				rotation="0 0 0"></a-box>
+
+				<a-entity position="-50 40 300"
+								text="width: 100;
+								font: ./Mess-Light_web-msdf.json;
+								font-image: ./Mess-Lightweb-msdf.png;
+											color: black;
+											negate: false;
+											align: center;
+											lineHeight: 50;
+											value: if you believed
+											they put a
+											plant on
+											the moon"
+
+								>
+		</a-entity>
+								<a-entity position="50 40 300"
+												text="width: 100;
+												font: ./Karrik-Regular-msdf.json;
+												font-image: ./Karrik-Regular-msdf.png;
+															color: black;
+															negate: false;
+															align: center;
+															lineHeight: 50;
+															value: if you believed
+															they put a
+															plant on
+															the moon"	>
+
+		</a-entity>
+
+	  		<a-sky src="#sky" metalness="5">
+
+				</a-sky>
+				<a-entity id="luz" position="-0.67268 1.58003 0" light="type: hemisphere;; angle: 59.7; color: #009dff; decay: 1.41; distance: 0.62; intensity: 1.03; penumbra: 0.01; shadowBias: 0.08; shadowCameraBottom: -4.74; shadowRadius: 1.03">
+				</a-entity>
+
+			<a-entity id="luz2" position="-0.67268 1.58003 0" light="type: ambient;; angle: 59.7; color: #ffeed6; decay: 1.41; distance: 0.62; intensity: 1.03; penumbra: 0.01; shadowBias: 0.08; shadowCameraBottom: -4.74; shadowRadius: 1.03">
+
+			</a-entity>
+
+
+
+				<!-- Text entity -->
+
+
+				<!-- GLB mesh entity -->
+				<a-entity id="vaso-mesh" rotation="0 60 30" gltf-model="#vaso-glb"
+									position="0 -2.66565 300"
+									scale="15 15 15" animation="property: rotation; to: 360 60 30; loop: true; dur: 10000">
+				</a-entity>
+
+		</a-scene>
+
+</body>
+</html>
